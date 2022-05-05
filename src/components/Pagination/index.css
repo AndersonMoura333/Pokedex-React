@@ -1,0 +1,22 @@
+.pagination-conteiner{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    color: white;
+}
+
+.iPexDg {
+    color: white;
+    background-color: #363636;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    margin: 0px 8px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    cursor: pointer;
+}

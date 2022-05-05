@@ -4,6 +4,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    
 
 }
 
@@ -11,5 +12,13 @@
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(3,1fr);
+    margin: 0px 20px;
     
+}
+
+.loading-container{
+    background-color: black;
+    color: white;
+    width: 100vw;
+    height: 100vh;
 }
