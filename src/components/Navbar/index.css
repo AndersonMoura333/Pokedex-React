@@ -1,4 +1,16 @@
-.navbar-img{
-    width: 160px;
 
+.navbar-img{
+    width: 100px;
+    margin: 10px 18px;
+
+}
+
+
+
+.navbar-container{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
 }
