@@ -16,6 +16,17 @@
     
 }
 
+.pokedex-grid-item{
+    height: 110px;
+}
+
+.pokedex-grid-item:hover{
+    transform: scale(1.04);
+    cursor: pointer;
+}
+
+
+
 .loading-container{
     background-color: black;
     color: white;

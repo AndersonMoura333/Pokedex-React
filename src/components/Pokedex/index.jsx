@@ -33,7 +33,7 @@ const Pokedex = ({ loading, pokemons,page,setPage,totalPages }) => {
                 :
                 (<div className="pokedex-grid">
                     {pokemons.map((_pokemon) => {
-                        return <Pokemon key={_pokemon.name} pokemon={_pokemon} />
+                        return <div className="pokedex-grid-item"><Pokemon key={_pokemon.name} pokemon={_pokemon} /></div>
                     })}
                 </div>)
             }

@@ -14,6 +14,7 @@ const NavBar = () => {
                      />
 
                 </div>
+                <div><h3>🏠Home</h3></div>
                 <div><h3>❤️{favoritePokemons.length} Favorite</h3></div>
             </nav>
         </div>

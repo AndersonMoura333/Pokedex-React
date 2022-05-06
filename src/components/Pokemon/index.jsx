@@ -3,6 +3,7 @@ import FavoriteContext from "../../contexts/favoriteContext"
 import './index.css'
 
 const Pokemon = ({ pokemon }) => {
+    const pokemonUrl = `https://pokemon-react-635a4.web.app/images/animated/${pokemon.id}.gif`
     const {favoritePokemons,updateFavoritePokemons} = useContext(FavoriteContext)
     const onHeartClick = () => {
         updateFavoritePokemons(pokemon.name)
@@ -14,8 +15,9 @@ const Pokemon = ({ pokemon }) => {
 
     return (
         <div className="pokemon-card">
+        <>
         <div className="pokemon-image-container">
-            <img alt={pokemon.name} src={pokemon.sprites.front_default} className="pokemon-image"/>
+            <img alt={pokemon.name} src={pokemonUrl} className="pokemon-image"/>
         </div>
         <div className="card-body">
             <div className="card-top">
@@ -35,6 +37,7 @@ const Pokemon = ({ pokemon }) => {
                 </button>
             </div>
         </div>
+        </>
     </div>
     )
 }
