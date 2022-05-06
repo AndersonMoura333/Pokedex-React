@@ -12,6 +12,24 @@ nav{
 
 .App {
   background-color: black;
+  min-height: 100vh;
+}
+
+.not-found-text {
+
+  text-align: center;
+  font-size: 1.25rem;
+  padding: 20px;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.not-found-text h1{
+  color: red;
 }
 
 

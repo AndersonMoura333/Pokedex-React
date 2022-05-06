@@ -4,7 +4,7 @@ import './App.css';
 import NavBar from './components/Navbar';
 import Pokedex from './components/Pokedex';
 import Searchbar from './components/Searchbar';
-import {getPokemonData, getPokemons} from './api'
+import {getPokemonData, getPokemons,searchPokemon} from './api'
 import { FavoriteProvider } from './contexts/favoriteContext';
 
 
@@ -16,6 +16,7 @@ function App() {
   const [favorites, setFavorites] = useState([])
   const [loading, setLoading] = useState(false)
   const [pokemons, setPokemons] = useState([])
+  const [notFound, setNotFound] = useState(false);
 
   const itensPerPage = 30;
 
@@ -23,7 +24,7 @@ function App() {
     try {
   
       setLoading(true)
-      console.log(loading)
+      setNotFound(false);
       const data = await getPokemons(itensPerPage, itensPerPage*page)
       const promises = data.results.map(async (_pokemon) =>{
         return await getPokemonData(_pokemon.url)
@@ -62,6 +63,25 @@ function App() {
     setFavorites(updatedFavorites);
   }
 
+  const onSearchHandler = async (pokemon) => {
+    if(!pokemon) {
+      return fetchPokemons();
+    }
+
+    setLoading(true)
+    setNotFound(false)
+    const result = await searchPokemon(pokemon)
+    if(!result) {
+      setNotFound(true)
+    } else {
+      setPokemons([result])
+      setPage(0)
+      setTotalPages(1)
+    }
+    setLoading(false)
+
+  }
+
   return (
     <FavoriteProvider
       value={{
@@ -71,14 +91,21 @@ function App() {
     >
     <div className='App'>
       <NavBar />
-      <Searchbar />
-      <Pokedex
-      pokemons = {pokemons}
-      loading = {loading}
-      page = {page}
-      setPage = {setPage}
-      totalPages = {totalPages}
-      />
+      <Searchbar onSearch={onSearchHandler}/>
+      {notFound ? (
+          <div class-name="not-found-text">
+            
+             <img src="https://pokemon-react-635a4.web.app/static/media/tired.3b01c362.gif" alt="loading..."></img>
+             <h1>Desculpe, pokémon não encontrado</h1>
+             </div>
+        ) : 
+        (<Pokedex
+          pokemons={pokemons}
+          loading={loading}
+          page={page}
+          setPage={setPage}
+          totalPages={totalPages}
+        />)}
     </div>
     </FavoriteProvider>
   );
