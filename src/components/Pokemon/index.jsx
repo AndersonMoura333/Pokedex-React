@@ -9,12 +9,14 @@ const Pokemon = ({ pokemon }) => {
         updateFavoritePokemons(pokemon.name)
 
     }
+    const primaryClass = `pokemon-card ${pokemon.types[0].type.name}`
+    console.log('primaryClass', primaryClass)
     const heart = favoritePokemons.includes(pokemon.name) ? "❤️": "🖤";
     console.log(pokemon)
 
 
     return (
-        <div className="pokemon-card">
+        <div className={primaryClass} >
         <>
         <div className="pokemon-image-container">
             <img alt={pokemon.name} src={pokemonUrl} className="pokemon-image"/>
